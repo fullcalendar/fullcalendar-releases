@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v0.0.0
+ * FullCalendar v4.0.0-alpha.2
  * Docs & License: https://fullcalendar.io/
  * (c) 2018 Adam Shaw
  */
@@ -1189,6 +1189,7 @@ var INTERNAL_UNITS = ['years', 'months', 'days', 'milliseconds'];
 var PARSE_RE = /^(-?)(?:(\d+)\.)?(\d+):(\d\d)(?::(\d\d)(?:\.(\d\d\d))?)?/;
 // Parsing and Creation
 function createDuration(input, unit) {
+    var _a;
     if (typeof input === 'string') {
         return parseString(input);
     }
@@ -1201,7 +1202,6 @@ function createDuration(input, unit) {
     else {
         return null;
     }
-    var _a;
 }
 exports.createDuration = createDuration;
 function parseString(s) {
@@ -1751,6 +1751,7 @@ var EventApi = /** @class */ (function () {
         this.instance = instance || null;
     }
     EventApi.prototype.setProp = function (name, val) {
+        var _a;
         if (name.match(/^(start|end|date|allDay)$/)) {
             // error. date-related props need other methods
         }
@@ -1775,13 +1776,12 @@ var EventApi = /** @class */ (function () {
                 standardProps: props
             });
         }
-        var _a;
     };
     EventApi.prototype.setExtendedProp = function (name, val) {
+        var _a;
         this.mutate({
             extendedProps: (_a = {}, _a[name] = val, _a)
         });
-        var _a;
     };
     EventApi.prototype.setStart = function (startInput, options) {
         if (options === void 0) { options = {}; }
@@ -3363,7 +3363,7 @@ function parseEventSourceProps(raw, meta, sourceDefId, calendar) {
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.version = '0.0.0';
+exports.version = '4.0.0-alpha.2';
 // When introducing internal API incompatibilities (where fullcalendar plugins would break),
 // the minor version of the calendar should be upped (ex: 2.7.2 -> 2.8.0)
 // and the below integer should be incremented.
@@ -4172,6 +4172,7 @@ emits:
 */
 var HitDragging = /** @class */ (function () {
     function HitDragging(dragging, droppable) {
+        var _a;
         var _this = this;
         // options that can be set by caller
         this.useSubjectCenter = false;
@@ -4228,7 +4229,6 @@ var HitDragging = /** @class */ (function () {
         dragging.emitter.on('dragend', this.handleDragEnd);
         this.dragging = dragging;
         this.emitter = new EmitterMixin_1.default();
-        var _a;
     }
     // sets initialHit
     // sets coordAdjust
@@ -6904,6 +6904,7 @@ var FillRenderer = /** @class */ (function () {
         this.renderedSegsByType = {};
     }
     FillRenderer.prototype.renderSegs = function (type, segs, props) {
+        var _a;
         var renderedSegs = this.buildSegEls(type, segs, props); // assignes `.el` to each seg. returns successfully rendered segs
         var containerEls = this.attachSegEls(type, renderedSegs);
         if (containerEls) {
@@ -6911,7 +6912,6 @@ var FillRenderer = /** @class */ (function () {
         }
         this.renderedSegsByType[type] = renderedSegs;
         return renderedSegs;
-        var _a;
     };
     // Unrenders a specific type of fill that is currently rendered on the grid
     FillRenderer.prototype.unrender = function (type) {
@@ -13057,6 +13057,7 @@ function fetchSource(eventSource, fetchRange, calendar) {
     });
 }
 function receiveResponse(sourceHash, sourceId, fetchId, fetchRange) {
+    var _a;
     var eventSource = sourceHash[sourceId];
     if (eventSource && // not already removed
         fetchId === eventSource.latestFetchId) {
@@ -13068,7 +13069,6 @@ function receiveResponse(sourceHash, sourceId, fetchId, fetchRange) {
             _a));
     }
     return sourceHash;
-    var _a;
 }
 function excludeStaticSources(eventSources) {
     return object_1.filterHash(eventSources, function (eventSource) {

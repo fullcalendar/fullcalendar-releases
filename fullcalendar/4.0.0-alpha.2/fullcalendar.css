@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v0.0.0
+ * FullCalendar v4.0.0-alpha.2
  * Docs & License: https://fullcalendar.io/
  * (c) 2018 Adam Shaw
  */
@@ -591,7 +591,7 @@ a.fc-more:hover {
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 /*
 TODO: more distinction between this file and common.css
