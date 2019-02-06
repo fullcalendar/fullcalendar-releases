@@ -732,7 +732,7 @@ Docs & License: https://fullcalendar.io/scheduler/
         });
     };
 
-    var RELEASE_DATE = '2019-02-05'; // for Scheduler
+    var RELEASE_DATE = '2019-02-06'; // for Scheduler
     var UPGRADE_WINDOW = 365 + 7; // days. 1 week leeway, for tz shift reasons too
     var LICENSE_INFO_URL = 'http://fullcalendar.io/scheduler/license/';
     var PRESET_LICENSE_KEYS = [
