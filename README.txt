@@ -1,3 +1,3 @@
 
-NOTE: each *.json file must have releases ordered newest to oldest
-NOTE: the *.json files do not contain pre-releases
+These release files were previously served on fullcalendar.io, however,
+now all release files are served from the CDN.
