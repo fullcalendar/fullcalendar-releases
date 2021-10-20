@@ -1,0 +1,31 @@
+
+# disable directory indexes
+Options -Indexes
+
+# works???
+ErrorDocument 403 /public/403.html
+ErrorDocument 404 /public/404.html
+
+# never serve hidden files like .htaccess and .git*
+# first slash means start-of-directory
+RedirectMatch 404 "/\."
+
+RewriteEngine on
+
+# remove www
+RewriteCond %{HTTP_HOST}%{REQUEST_URI} ^www\.(.*)$
+RewriteRule .* https://%1 [R=301,L]
+
+# if non-empty non-whitelisted referrer requesting a release file, serve the "forbidden" page
+RewriteCond %{REQUEST_URI} ^/releases/.*\.(js|css)$
+RewriteCond %{HTTP_REFERER} !^($|https?://([^/]*\.|)(fullcalendar|codepen|cdpn|jsbin|jsfiddle|jshell|plnkr|localhost|127\.0\.0\.1))
+RewriteRule .* - [F]
+
+# for relative redirects
+# needed???
+RewriteBase /releases/
+
+# old release URLs that started with /js/
+RewriteRule ^(fullcalendar(-scheduler)?)-([^/]+)/(.+)$ $1/$3/$4 [L]
+
+# NOTE: the "latest" release redirects happen in the 404 Redirect handler!!!
