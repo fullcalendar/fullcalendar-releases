@@ -5,11 +5,12 @@
 # disables auto-listing directory contents
 Options -Indexes
 
-# works???
-ErrorDocument 403 /public/403.html
-ErrorDocument 404 /public/404.html
+# error pages
+# (leading slash spawns internal request)
+ErrorDocument 404 /403
+ErrorDocument 404 /404
 
-RewriteEngine on
+RewriteEngine On
 
 ##################
 # General Rewrites
