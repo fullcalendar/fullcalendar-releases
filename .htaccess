@@ -32,13 +32,6 @@ RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
 #######################
 
 # if non-empty non-whitelisted referrer requesting a release file, serve the "forbidden" page
-RewriteCond %{REQUEST_URI} ^/releases/.*\.(js|css)$
+RewriteCond %{REQUEST_URI} \.(js|css)$
 RewriteCond %{HTTP_REFERER} !^($|https?://([^/]*\.|)(fullcalendar|codepen|cdpn|jsbin|jsfiddle|jshell|plnkr|localhost|127\.0\.0\.1))
 RewriteRule .* - [F]
-
-# TODO: do this!!!!
-# # old release URLs that started with /js/
-# RewriteRule ^(fullcalendar(-scheduler)?)-([^/]+)/(.+)$ $1/$3/$4 [L]
-
-# NOTE: the "latest" release redirects happen in the 404 Redirect handler!!!
-# TODO: remove /release/ paths here
