@@ -5,6 +5,9 @@
 # disables auto-listing directory contents
 Options -Indexes
 
+# follow the 'latest' symlinks
+Options +FollowSymLinks
+
 # error pages
 # (leading slash spawns internal request)
 ErrorDocument 404 /403
@@ -33,8 +36,9 @@ RewriteCond %{REQUEST_URI} ^/releases/.*\.(js|css)$
 RewriteCond %{HTTP_REFERER} !^($|https?://([^/]*\.|)(fullcalendar|codepen|cdpn|jsbin|jsfiddle|jshell|plnkr|localhost|127\.0\.0\.1))
 RewriteRule .* - [F]
 
-# old release URLs that started with /js/
-RewriteRule ^(fullcalendar(-scheduler)?)-([^/]+)/(.+)$ $1/$3/$4 [L]
+# TODO: do this!!!!
+# # old release URLs that started with /js/
+# RewriteRule ^(fullcalendar(-scheduler)?)-([^/]+)/(.+)$ $1/$3/$4 [L]
 
 # NOTE: the "latest" release redirects happen in the 404 Redirect handler!!!
 # TODO: remove /release/ paths here
