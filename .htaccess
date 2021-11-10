@@ -10,8 +10,8 @@ Options +FollowSymLinks
 
 # error pages
 # (leading slash spawns internal request)
-ErrorDocument 404 /403
-ErrorDocument 404 /404
+ErrorDocument 404 /api/404.php
+ErrorDocument 403 /403/index.html
 
 RewriteEngine On
 
