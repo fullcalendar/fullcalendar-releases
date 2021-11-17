@@ -14,6 +14,7 @@ ErrorDocument 404 /api/404.php
 ErrorDocument 403 /403/index.html
 
 RewriteEngine On
+RewriteBase /releases/
 
 ##################
 # General Rewrites
